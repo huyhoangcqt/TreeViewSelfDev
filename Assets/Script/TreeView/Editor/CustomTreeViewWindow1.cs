@@ -14,6 +14,7 @@ public class CustomTreeViewWindow1 : EditorWindow
         TreeModel<MyTreeElement1> m_TryModel;
         [SerializeField] MyTreeAsset1 m_MyTreeAsset;
         private bool isNeedReloadData = true;
+        private string lastSelectedTreeAssetName = string.Empty;
 
     #endregion Attributes!
 
@@ -83,6 +84,10 @@ public class CustomTreeViewWindow1 : EditorWindow
         {
             EditorGUILayout.BeginHorizontal();
             m_MyTreeAsset = EditorGUILayout.ObjectField(m_MyTreeAsset, typeof(MyTreeAsset1), true) as MyTreeAsset1;
+            if (lastSelectedTreeAssetName == null || lastSelectedTreeAssetName != m_MyTreeAsset.name)
+            {
+                OnSelectTreeAsset();
+            }
             EditorGUILayout.EndHorizontal();
 
             // if (GUILayout.Button("Search!"))
@@ -113,16 +118,22 @@ public class CustomTreeViewWindow1 : EditorWindow
         }
     #endregion OnGUI!
 
-    [OnOpenAsset]
-    public static bool OnOpenAsset (int instanceID, int line)
+    private void OnSelectTreeAsset()
     {
-        var myTreeAsset = EditorUtility.InstanceIDToObject (instanceID) as MyTreeAsset1;
-        if (myTreeAsset != null)
-        {
-            var window = GetWindow();
-            window.SetTreeAsset(myTreeAsset);
-            return true;
-        }
-        return false; // we did not handle the open
+        lastSelectedTreeAssetName = m_MyTreeAsset.name;
+        isNeedReloadData = true;
     }
+
+    // [OnOpenAsset]
+    // public static bool OnOpenAsset (int instanceID, int line)
+    // {
+    //     var myTreeAsset = EditorUtility.InstanceIDToObject (instanceID) as MyTreeAsset1;
+    //     if (myTreeAsset != null)
+    //     {
+    //         var window = GetWindow();
+    //         window.SetTreeAsset(myTreeAsset);
+    //         return true;
+    //     }
+    //     return false; // we did not handle the open
+    // }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "MyTreeAsset2", menuName = "TreeViewSelfDev/MyTreeAsset2", order = 0)]
-public class MyTreeAsset2 : ScriptableObject {
+public class MyTreeAsset2 : MyTreeAsset<MyTreeElement2> {
     [SerializeField] public  List<MyTreeElement2> elements = new List<MyTreeElement2>();
 
     private void Awake() {

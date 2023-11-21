@@ -14,4 +14,12 @@ public class TreeModel<T> where T : TreeElement
         elements = new List<T>();
         elements.AddRange(ele);
     }
+
+    public void UpdateData(MyTreeAsset<T> myTreeAsset)
+    {
+        if (myTreeAsset != null){
+            elements.Clear();
+            elements.AddRange(myTreeAsset.elements);
+        }
+    }
 }
