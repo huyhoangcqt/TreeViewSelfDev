@@ -26,7 +26,7 @@ public class TreeAssetAutoGenerate
 
     private static void RandomOne<T>(T parent, int maxItem, int maxDepth, ref List<T> result, int crrDepth) where T : TreeElement, new ()
     {
-        Debug.Log("Result count: " + result.Count);
+        // Debug.Log("Result count: " + result.Count);
         if (result.Count >= maxItem || crrDepth > maxDepth){
             return;
         }
@@ -100,5 +100,5 @@ public class TreeAssetAutoGenerate
         }
 
         return Name;
-     }
+    }
 }

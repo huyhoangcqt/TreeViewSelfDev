@@ -7,28 +7,28 @@ using UnityEngine.UIElements;
 [CustomPropertyDrawer(typeof(MyTreeElement1))]
 public class MyTreeElement1Drawer : PropertyDrawer
 {
-    // public override VisualElement CreatePropertyGUI(SerializedProperty property)
-    // {
-    //     Debug.Log("CreatePropertyGUI");
-    //     // Create property container element.
-    //     var container = new VisualElement();
+    public override VisualElement CreatePropertyGUI(SerializedProperty property)
+    {
+        // Debug.Log("CreatePropertyGUI");
+        // Create property container element.
+        var container = new VisualElement();
 
-    //     // Create property fields.
-    //     var popup = new UnityEngine.UIElements.PopupWindow(); 
-    //     popup.text = "Item";
-    //     var type = new PropertyField(property.FindPropertyRelative("m_Type"));
-    //     // var unitField = new PropertyField(property.FindPropertyRelative("unit"));
-    //     // var nameField = new PropertyField(property.FindPropertyRelative("name"), "Fancy Name");
+        // Create property fields.
+        var popup = new UnityEngine.UIElements.PopupWindow(); 
+        popup.text = "Item";
+        var type = new PropertyField(property.FindPropertyRelative("m_Type"));
+        var dataSize = new PropertyField(property.FindPropertyRelative("m_DataSize"));
+        var displayName = new PropertyField(property.FindPropertyRelative("m_DisplayName"));
 
-    //     // Add fields to the container.
-    //     popup.Add(type);
-    //     // popup.Add(unitField);
-    //     // popup.Add(nameField);
+        // Add fields to the container.
+        popup.Add(displayName);
+        popup.Add(type);
+        popup.Add(dataSize);
         
-    //     container.Add(popup);
+        container.Add(popup);
 
-    //     return container;
-    // }
+        return container;
+    }
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {

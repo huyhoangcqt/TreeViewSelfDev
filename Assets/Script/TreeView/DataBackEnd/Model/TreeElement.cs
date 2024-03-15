@@ -9,7 +9,8 @@ public class TreeElement
 {
     public int m_Id;
     public int m_Depth;
-    public string m_DisplayName;
+    public string m_DisplayName; 
+
     List<TreeElement> m_Children;
     TreeElement m_Parent;
 

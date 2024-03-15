@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class MyTreeAsset1 : MyTreeAsset<MyTreeElement1> 
 {
     private void Awake() {
-        elements = TreeAssetAutoGenerate.Generate<MyTreeElement1>(maxItem: 100, maxDepth: 3);
+        // Debug.Log("MyTreeAsset1 Awake");
+        // elements = TreeAssetAutoGenerate.Generate<MyTreeElement1>(maxItem: 100, maxDepth: 3);
     }
 }

@@ -16,7 +16,10 @@ public class MyTreeElement2 : TreeElement
 {
     public float m_DataSize;
     public EType m_Type;
-
+    public int rare { get { return m_Rare; } set { m_Rare = Mathf.Clamp(value, 0, 5); } }
+    [SerializeField, Range(0, 5)]
+    private int m_Rare;
+    
     public MyTreeElement2() : base()
     {
     }
